@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Curso Platzi - React.js</title>
+    <link rel="stylesheet" href="css/style.css">
+  </head>
+  <body>
+    <div id="container"></div>
+    <script crossorigin src="https://unpkg.com/react@15/dist/react.min.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@15/dist/react-dom.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/6.26.0/babel.js"></script>
+    <script type="text/babel">
+      const pokemons = [
+        { number: 1, name: 'Bulbasaur' },
+        { number: 2, name: 'Ivysaur' },
+        { number: 3, name: 'Venusaur' }
+      ];
+
+      class PokeAvatar extends React.Component {
+        render() {
+          const url = `http://veekun.com/dex/media/pokemon/main-sprites/x-y/${this.props.number}.png`;
+          return <img src={url} className="avatar"/>
+        }
+      }
+
+      class PokeRow extends React.Component {
+        render() {
+          return <li className="pokerow">
+            <PokeAvatar number={this.props.number} />
+            {this.props.name}
+          </li>
+        }
+      }
+
+      class PokeTable extends React.Component {
+        render() {
+          return <ul className="poketable">
+            {
+              this.props.pokemons.map(pokemon => {
+                return <PokeRow key={pokemon.number} {...pokemon} />
+              })
+            }
+          </ul>
+        }
+      }
+
+      ReactDOM.render(<PokeTable pokemons={pokemons} />, document.getElementById('container'));
+    </script>
+  </body>
+</html>
