@@ -24,14 +24,8 @@ export default class PokeApp extends React.Component {
   }
 
   render() {
-    const pokemons = [
-      { number: 1, name: 'Bulbasaur' },
-      { number: 2, name: 'Ivysaur' },
-      { number: 3, name: 'Venusaur' }
-    ];
-
     return <div className="pokeapp">
-      <PokeTable pokemons={pokemons} onGrowl={this.onGrowl.bind(this)} />
+      <PokeTable pokemons={this.props.pokemons} onGrowl={this.onGrowl.bind(this)} />
       <PokeChat messages={this.state.messages} />
     </div>
   }

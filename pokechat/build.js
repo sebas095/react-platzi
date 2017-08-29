@@ -15,8 +15,10 @@ var _componentsPokeApp = require('./components/PokeApp');
 
 var _componentsPokeApp2 = _interopRequireDefault(_componentsPokeApp);
 
+var pokemons = [{ number: 1, name: 'Bulbasaur' }, { number: 2, name: 'Ivysaur' }, { number: 3, name: 'Venusaur' }];
+
 var app = document.getElementById('container');
-_react2['default'].render(_react2['default'].createElement(_componentsPokeApp2['default'], null), app);
+_react2['default'].render(_react2['default'].createElement(_componentsPokeApp2['default'], { pokemons: pokemons }), app);
 
 },{"./components/PokeApp":2,"react":163}],2:[function(require,module,exports){
 /*
@@ -80,12 +82,10 @@ var PokeApp = (function (_React$Component) {
   }, {
     key: 'render',
     value: function render() {
-      var pokemons = [{ number: 1, name: 'Bulbasaur' }, { number: 2, name: 'Ivysaur' }, { number: 3, name: 'Venusaur' }];
-
       return _react2['default'].createElement(
         'div',
         { className: 'pokeapp' },
-        _react2['default'].createElement(_PokeTable2['default'], { pokemons: pokemons, onGrowl: this.onGrowl.bind(this) }),
+        _react2['default'].createElement(_PokeTable2['default'], { pokemons: this.props.pokemons, onGrowl: this.onGrowl.bind(this) }),
         _react2['default'].createElement(_PokeChat2['default'], { messages: this.state.messages })
       );
     }
@@ -135,7 +135,11 @@ var PokeAvatar = (function (_React$Component) {
     key: "render",
     value: function render() {
       var url = "http://veekun.com/dex/media/pokemon/main-sprites/x-y/" + this.props.number + ".png";
-      return _react2["default"].createElement("img", { src: url, className: "avatar" });
+      return _react2["default"].createElement(
+        "div",
+        { className: "avatar-container" },
+        _react2["default"].createElement("img", { src: url, className: "avatar" })
+      );
     }
   }]);
 
