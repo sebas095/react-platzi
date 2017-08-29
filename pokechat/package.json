@@ -1,0 +1,16 @@
+{
+  "name": "pokechat",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build": "browserify app.js > build.js -t babelify"
+  },
+  "author": "sebastian duque restrepo <sebas_tian_95@hotmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "babelify": "^6.1.2",
+    "browserify": "^10.2.4",
+    "react": "^0.13.3"
+  }
+}
