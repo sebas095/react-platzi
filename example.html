@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Curso Platzi - React.js</title>
+  </head>
+  <body>
+    <div id="container"></div>
+    <script crossorigin src="https://unpkg.com/react@15/dist/react.min.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@15/dist/react-dom.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/6.26.0/babel.js"></script>
+    <script type="text/babel">
+      class HelloWorldComponent extends React.Component {
+        render() {
+          return <h1>Hola {this.props.name}!</h1>;
+        }
+      }
+      ReactDOM.render(<HelloWorldComponent name="squirtle" />, document.getElementById('container'));
+      setTimeout(() => {
+        ReactDOM.render(<HelloWorldComponent name="wartortle" />, document.getElementById('container'));
+      }, 5000);
+    </script>
+  </body>
+</html>
