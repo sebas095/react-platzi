@@ -10,7 +10,7 @@ export default class PokeTable extends React.Component {
     return <ul className="poketable">
       {
         this.props.pokemons.map(pokemon => {
-          return <PokeRow key={pokemon.number} {...pokemon} />
+          return <PokeRow key={pokemon.number} {...pokemon} growl={this.props.onGrowl} />
         })
       }
     </ul>
