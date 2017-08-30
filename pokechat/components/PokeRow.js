@@ -2,8 +2,8 @@
  * Module dependencies
  */
 
-import React from 'react';
-import PokeAvatar from './PokeAvatar';
+import React from "react";
+import PokeAvatar from "./PokeAvatar";
 
 export default class PokeRow extends React.Component {
   onClick(ev) {
@@ -11,9 +11,11 @@ export default class PokeRow extends React.Component {
   }
 
   render() {
-    return <li className="pokerow" onClick={this.onClick.bind(this)}>
-      <PokeAvatar number={this.props.number} />
-      {this.props.name}
-    </li>
+    return (
+      <li className="pokerow" onClick={this.onClick.bind(this)}>
+        <PokeAvatar number={this.props.number} />
+        {this.props.name}
+      </li>
+    );
   }
 }
